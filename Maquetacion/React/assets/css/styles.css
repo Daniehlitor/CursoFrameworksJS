@@ -1,0 +1,351 @@
+body{
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+    /*FUENTES*/
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+#header{
+    height: 120px;
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    border-top: 5px solid #61DBFB;
+}
+.center{
+    width: 75%;
+    margin: 0% auto;
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
+#logo{
+    width: 30%;
+    font-size: 30px;
+    float: left;
+    display: block;
+    margin-top: 35px;
+}
+#logo img{
+    display: block;
+    float: left;
+    height: 60px;
+    margin-top: -7px;
+    margin-right: 12px;
+    animation: girar infinite 30s linear ;
+}
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+#brand{
+    display: block;
+    margin: 0px;
+    float: left;
+}
+#menu{
+    width: 70%;
+    float: right;
+    font-size: 18px;
+}
+#menu ul{
+    line-height: 85px;
+    width: 60%;
+    float: right;
+}
+#menu ul li{
+    list-style: none;
+    height: 46px;
+    display: inline-block;
+    margin: 0px 15px;
+}
+#menu a {
+    text-decoration: none;
+    color: #444;
+    transition: 300ms all;
+}
+#menu a:hover{
+    color: #38A7C5;
+}
+#slider{
+    width: 100%;
+    height: 350px;
+    color: #fff;
+    text-shadow: 0px 0px 5px #444;
+    background: rgb(93,143,210);
+    background: radial-gradient(circle, #81c0f3 0%, #61dbfb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#slider h1{
+    margin: 0.2px;
+    padding: 0%;
+    text-align: center;
+}
+.btn-white{
+    display: block;
+    background: #fff;
+    color: #585858;
+    padding: 10px;
+    width: 100px;
+    height: 30px;
+    margin: 0% auto;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-shadow: none;
+    text-decoration: none;
+    margin-top: 30px;
+    line-height: 30px;
+    box-shadow: 0px 0px 5px #585858;
+    border-radius: 4px;
+    transition: 300ms all;
+}
+.btn-white:hover{
+    background: #444;
+    color: #fff;
+}
+#slider.slider-small{
+    height: 150px;
+}
+#content{
+    width: 70%;
+    float: left;
+    min-height: 650px;
+    margin-right: 20px;
+}
+#sidebar{
+    width: 25%;
+    float: left;
+}
+.sidebar-item{
+    background: #f7f7f7;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.sidebar-item h3{
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 0%;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.sidebar-item .btn{
+    margin: 0% auto;
+    margin-top: 10px !important; 
+}
+.btn{
+    background: #444;
+    color: #fff;
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block;
+    max-width: 120px;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+}
+.btn-success{
+    background: #61DBFB;
+}
+.btn-success:hover{
+    background: #444;
+    color: #fff;
+}
+.mid-form{
+    width: 60%;
+    margin: 0% auto;
+    height: 640px;
+}
+.mid-form label {
+    text-align: left;
+    display: block;
+    float: left;
+    margin-bottom: 5px;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+textarea{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 120px !important;
+    height: 120px;
+    transition: none;
+    transition: 0ms all !important;
+}
+input[type="text"], textarea{
+    width: 100%;
+    min-height: 30px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 3px;
+    border-radius: 5px;
+    transition: 300ms all;
+}
+input[type="text"]:focus, textarea:focus{
+    box-shadow: 0px 0px 5px #646464;
+}
+#footer{
+    background: #f7f7f7;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    position: absolute;
+}
+#footer p{
+    margin: 0%;
+    padding: 0%;
+}
+.article-item{
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0px;
+    text-align: left;
+}
+.article-item .image-wrap{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    float: left;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.article-item .image-wrap img{
+    height: 100%;
+    text-align: center;
+}
+.article-item h2 {
+    display: block;
+    width: 100%;
+    padding: 0%;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+.article-item .date{
+    display: block;
+    width: 100%;
+    color: gray;
+}
+.article-item a{
+    display: block;
+    color: #444;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.article-item a:hover{
+    text-decoration: underline;
+}
+.subheader{
+    font-size: 38px;
+    color: #444;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.article-detail .image-wrap{
+    float: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 300px;
+}
+.article-detail .image-wrap img{
+    width: 100%;
+    height: auto;
+}
+.article-detail .subheader{
+    margin-bottom: 5px;
+    border: none;
+    margin-top: 10px;
+    padding-bottom: 0%;
+}
+.radio-buttons{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    float: left;
+}
+
+/*RESPONSIVE*/
+
+@media (max-width: 1489px){
+    .center{
+        width: 85%;
+    }
+}
+@media (max-width: 1313px){
+    .center{
+        width: 95%;
+    }
+    #menu ul{
+        width: auto;
+    }
+}
+@media (max-width: 819px){
+    #menu, #menu ul{
+        clear: both;
+        float: none;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        line-height: 43px;
+    }
+    #header{
+        height: 140px;
+    }
+    #logo{
+        float: none;
+        width: 240px;
+        margin: 0px auto;
+        margin-top: 35px;
+    }
+    #content{
+        float: none;
+        width: 100%;
+    }
+    #sidebar{
+        float: none;
+        width: 60%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+    }
+    #slider h1{
+        font-size: 25px;
+        padding: 0px 35px;
+    }
+}
+@media (max-width: 490px){
+    #header{
+        overflow: hidden;
+    }
+    #sidebar{
+        width: 80%;
+    }
+    #slider{
+        height: 200px;
+    }
+    #slider h1{
+        font-size: 18px;
+    }
+    #slider.slider-small{
+        height: 110px;
+    }
+}
