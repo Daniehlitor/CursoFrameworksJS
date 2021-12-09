@@ -1,0 +1,14 @@
+<h1>{{titulo}}</h1>
+<h2>{{anio}}</h2>
+<p>{{comentario}}</p>
+
+<button (click)="cambiarPeliculas()">Mostrar peliculas</button>
+
+<hr>
+<div *ngIf="mostrarPeliculas">
+  <app-peliculas></app-peliculas>
+</div>
+<hr>
+<app-pruebas></app-pruebas>
+<hr>
+<app-home></app-home>

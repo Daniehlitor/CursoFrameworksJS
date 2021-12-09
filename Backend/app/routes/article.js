@@ -19,7 +19,7 @@ router.get("/articles/:last?", ArticleControler.getArticles);
 router.get("/article/:id", ArticleControler.getArticle);
 router.put("/article/:id", ArticleControler.update);
 router.delete("/article/:id", ArticleControler.delete);
-router.post("/upload-image/:id", md_upload, ArticleControler.upload);
+router.post("/upload-image/:id?", md_upload, ArticleControler.upload);
 router.get("/get-image/:image", ArticleControler.getImage);
 router.get("/search/:search", ArticleControler.search);
 

@@ -22,7 +22,7 @@ const controller = {
         })
     },
 
-    save: function(req, res) {
+    save: function (req, res) {
         //Tomar parametros
         var params = req.body;
         //Validar datos
@@ -42,7 +42,7 @@ const controller = {
             //Asignar valores
             article.tittle = params.tittle;
             article.content = params.content;
-            article.image = null;
+            article.image = params.image ? params.image : null;
             //Guardar articulo
             article.save((err, articleStored) => {
                 if (err || !articleStored) {
@@ -78,13 +78,17 @@ const controller = {
             });
         }
         if (val_tittle && val_content) {
-            Article.findOneAndUpdate({_id: article_id}, params, {new: true}, (err, articleUpdated) => {
+            Article.findOneAndUpdate({
+                _id: article_id
+            }, params, {
+                new: true
+            }, (err, articleUpdated) => {
                 if (err) {
-                   return res.status(500).send({
-                       status: "error",
-                       mensaje: "Error al actualizar",
-                       detail: err
-                   });
+                    return res.status(500).send({
+                        status: "error",
+                        mensaje: "Error al actualizar",
+                        detail: err
+                    });
                 }
                 if (!articleUpdated) {
                     return res.status(404).send({
@@ -106,21 +110,23 @@ const controller = {
         }
     },
 
-    delete: function (req,res) {
+    delete: function (req, res) {
         var article_id = req.params.id;
-        Article.findOneAndDelete({_id: article_id}, (err, articleDeleted) => {
+        Article.findOneAndDelete({
+            _id: article_id
+        }, (err, articleDeleted) => {
             if (err) {
                 return res.status(500).send({
                     status: "error",
                     mensaje: "Error al borrar",
                     detail: err
                 });
-            } 
+            }
             if (!articleDeleted) {
-               return res.status(404).send({
-                   status: "error",
-                   mensaje: "El articulo no existe"
-               }) 
+                return res.status(404).send({
+                    status: "error",
+                    mensaje: "El articulo no existe"
+                })
             }
             return res.status(200).send({
                 status: "success",
@@ -128,7 +134,7 @@ const controller = {
             });
         });
     },
-                      
+
     getArticles: function (req, res) {
         const query = Article.find({});
         const last = req.params.last;
@@ -142,8 +148,8 @@ const controller = {
                     mensaje: "Error al enviar articulos",
                     detail: err
                 })
-            } 
-            if (!articles){
+            }
+            if (!articles) {
                 return res.status(404).send({
                     status: "error",
                     mensaje: "No hay articulos para mostrar"
@@ -203,20 +209,34 @@ const controller = {
         } else {
             //Buscar el articulo y actualizar imagen
             var article_id = req.params.id;
-            Article.findOneAndUpdate({_id: article_id}, {image: file_name}, {new: true}, (err, articleUpdated) => {
-                if (err || !articleUpdated) {
-                    return res.status(500).send({
-                        status: "error",
-                        mensaje: "Error al guardar imagen de articulo",
-                        detail: err
-                    })
-                }
+
+            if (article_id) {
+                Article.findOneAndUpdate({
+                    _id: article_id
+                }, {
+                    image: file_name
+                }, {
+                    new: true
+                }, (err, articleUpdated) => {
+                    if (err || !articleUpdated) {
+                        return res.status(500).send({
+                            status: "error",
+                            mensaje: "Error al guardar imagen de articulo",
+                            detail: err
+                        })
+                    }
+                    return res.status(200).send({
+                        status: "success",
+                        article: articleUpdated,
+                        fichero: req.files
+                    });
+                });
+            } else {
                 return res.status(200).send({
                     status: "success",
-                    article: articleUpdated,
-                    fichero: req.files
+                    file_name
                 });
-            });
+            }
         }
     },
 
@@ -237,11 +257,23 @@ const controller = {
 
     search: function (req, res) {
         const search_string = req.params.search;
-        console.log(search_string);
-        Article.find({ "$or": [
-            { "tittle": { "$regex": search_string, "$options": "i" }},
-            { "content": { "$regex": search_string, "$options": "i" }},
-        ]}).sort([["date", "descending"]]).exec((err, articles) => {
+        Article.find({
+            "$or": [{
+                    "tittle": {
+                        "$regex": search_string,
+                        "$options": "i"
+                    }
+                },
+                {
+                    "content": {
+                        "$regex": search_string,
+                        "$options": "i"
+                    }
+                },
+            ]
+        }).sort([
+            ["date", "descending"]
+        ]).exec((err, articles) => {
             if (err) {
                 return res.status(500).send({
                     status: "error",

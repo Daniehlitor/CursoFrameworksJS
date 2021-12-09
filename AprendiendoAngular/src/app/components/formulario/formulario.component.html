@@ -1,0 +1,51 @@
+<app-slider [nombre]="'Formulario'" [size]="'small'"></app-slider>
+
+<div class="center">
+
+  <section id="content">
+
+    <h1 class="subheader">Formulario</h1>
+
+    <form class="mid-form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required pattern="[a-z A-Z]+">
+        <small *ngIf="!nombre.valid && nombre.touched">El nombre no es válido</small>
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required>
+        <small *ngIf="!apellidos.valid && apellidos.touched">Los apellidos no son válidos</small>
+      </div>
+
+      <div class="form-group">
+        <label for="biografia">Biografia</label>
+        <textarea name="biografia" #biografia="ngModel" [(ngModel)]="user.biografia" required></textarea>
+        <small *ngIf="!biografia.valid && biografia.touched">La biografia no es válida</small>
+      </div>
+
+      <div class="form-group radio-buttons">
+        <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" required>Hombre
+        <input type="radio" name="genero" value="mujer" #genero="ngModel" [(ngModel)]="user.genero">Mujer
+        <input type="radio" name="genero" value="otro" #genero="ngModel" [(ngModel)]="user.genero">Otro
+        <small *ngIf="!genero.valid && genero.touched">El genero es requerido</small>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid">
+    </form>
+
+    <h1 class="subheader">Eventos</h1>
+
+    <button class="btn btn-success" (click)="eventoClick()">Evento click</button>
+    <input type="text" value="Evento blur" (blur)="eventoBlur()">
+    <input type="text" value="Evento keyup" (keyup.enter)="eventoKeyUp()">
+
+  </section>
+
+  <app-sidebar></app-sidebar>
+
+</div>
