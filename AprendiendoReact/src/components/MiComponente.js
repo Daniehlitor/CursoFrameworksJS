@@ -30,4 +30,4 @@ class MiComponente extends React.Component{
 
 }
 
-export default MiComponente
+export default MiComponente;

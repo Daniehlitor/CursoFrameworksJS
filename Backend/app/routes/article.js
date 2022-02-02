@@ -10,8 +10,8 @@ const article = require("../models/article");
 var md_upload = multipart();
 
 //Rutas prueba
-router.get("/test-de-controlador", ArticleControler.test);
-router.post("/datos-curso", ArticleControler.datosCurso);
+// router.get("/test-de-controlador", ArticleControler.test);
+// router.post("/datos-curso", ArticleControler.datosCurso);
 
 //Rutas importantes
 router.post("/save", ArticleControler.save);

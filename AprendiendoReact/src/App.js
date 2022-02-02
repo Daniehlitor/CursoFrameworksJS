@@ -1,19 +1,38 @@
-import logo from './assets/images/logo.svg';
 import './assets/css/App.css';
-import MiComponente from './components/MiComponente';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import Slider from './components/Slider';
+import Router from './Router';
 
 function App() {
+
+  var buttonString = "Cositas";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Editar <code>src/App.js</code> and save to reload.
-        </p>
-        <section className='componentes'>
-          <MiComponente/>
-        </section>
-      </header>
+
+      <Header />
+
+      <Slider
+        tittle="Bienvenido al Curso de React con Victor Robles de vitorroblesweb.es"
+        btn={buttonString}
+      />
+
+      <div className='center'>
+
+        {/* <Peliculas /> */}
+
+        <Router/>
+
+        <Sidebar />
+
+      </div>
+
+      <div className="clearfix"></div>
+
+      <Footer />
+
     </div>
   );
 }
